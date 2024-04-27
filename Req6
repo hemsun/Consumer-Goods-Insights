@@ -1,0 +1,9 @@
+ select c.customer_code,
+ avg(pre_invoice_discount_pct) as average_discount_percentage
+ from 
+ fact_pre_invoice_deductions pid
+ join dim_customer c
+ on pid.customer_code = c.customer_code
+ where c.market = 'India' and fiscal_year = 2021
+ group by customer_code
+ order by average_discount_percentage desc limit 5
