@@ -7,5 +7,7 @@ About the Project: Atliq Hardware is one of the leading computer hardware produc
 Consumer Goods 
 ## Function
 Executive Management 
+## Tools Used
+SQL
 ## Task
 Using SQL find insights for the adhoc requests from the gdb023 database.
