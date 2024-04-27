@@ -1,0 +1,10 @@
+select 
+DATE_FORMAT(date, '%b') AS month,
+year(date) as year,
+round(sum(fsm.sold_quantity*fgp.gross_price)/1000000,2) as gross_Sales_ml
+from fact_sales_monthly fsm
+join fact_gross_price fgp on fsm.product_code = fgp.product_code 
+join dim_customer c on fsm.customer_code = c.customer_code
+where customer = 'AtliQ Exclusive'
+group by DATE_FORMAT(date, '%b'),year(date)
+order by year(date)
