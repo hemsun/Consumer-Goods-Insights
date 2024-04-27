@@ -1,0 +1,18 @@
+with cte1 as(
+select 
+c.channel,
+round(sum(fsm.sold_quantity*fgp.gross_price)/1000000,2) as gross_Sales_ml
+from fact_sales_monthly fsm
+join fact_gross_price fgp on fsm.product_code = fgp.product_code
+join dim_customer c on fsm.customer_code = c.customer_code
+where fsm.fiscal_year = 2021
+group by c.channel
+order by round(sum(fsm.sold_quantity*fgp.gross_price)/1000000,2) DESC
+)
+
+SELECT
+    cte1.channel,
+    cte1.gross_Sales_ml,
+    ROUND(cte1.gross_Sales_ml / SUM(cte1.gross_Sales_ml)OVER() * 100, 2) AS percentage_contribution
+FROM
+    cte1;
