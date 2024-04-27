@@ -1,0 +1,15 @@
+with cte1 as(
+select count(distinct product_code) as unique_preduct_2020
+from fact_sales_monthly
+where fiscal_year=2020),
+
+cte2 as (
+select count(distinct product_code) as unique_preduct_2021
+from fact_sales_monthly
+where fiscal_year=2021)
+
+select
+unique_preduct_2020,
+unique_preduct_2021,
+round((unique_preduct_2021 - unique_preduct_2020)/unique_preduct_2020*100,2) as percent_chg
+from cte1,cte2
