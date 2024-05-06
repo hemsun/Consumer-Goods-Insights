@@ -11,3 +11,6 @@ Executive Management
 SQL
 ## Task
 Using SQL find insights for the adhoc requests from the gdb023 database.
+Conducted extensive SQL data analysis to uncover insights for "Atliq Exclusive" in the APAC region.
+Tracked changes in unique products between 2020 and 2021 and reported on segment-wise product counts and increases.
+Analyzed manufacturing costs and pre-invoice discounts, as well as gross sales across channels, quarters, and top-performing products in each division.
